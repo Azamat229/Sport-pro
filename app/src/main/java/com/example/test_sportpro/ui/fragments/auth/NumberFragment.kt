@@ -35,22 +35,15 @@ import java.util.concurrent.TimeUnit
 
 
 class NumberFragment : Fragment() {
-
     val args: NumberFragmentArgs by navArgs()
-
     lateinit var navController: NavController
-
     lateinit var viewModel: SportViewModel
-
     lateinit var number: String
-
     private val TAG = "NumberFragment"
-
     lateinit var auth: FirebaseAuth
     lateinit var storedVerificationId: String
     lateinit var resendToken: PhoneAuthProvider.ForceResendingToken
     private lateinit var callbacks: PhoneAuthProvider.OnVerificationStateChangedCallbacks
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -68,7 +61,7 @@ class NumberFragment : Fragment() {
 
         navController = Navigation.findNavController(view)
 
-        Toast.makeText(activity, args.status, Toast.LENGTH_LONG).show()
+//        Toast.makeText(activity, args.status, Toast.LENGTH_LONG).show()
         viewModel = (activity as MainActivity).viewModel
 
         auth = FirebaseAuth.getInstance()
@@ -121,7 +114,7 @@ class NumberFragment : Fragment() {
 
             //проверка судьи
             if (args.status == "2") {
-                Log.e("STATUS","JUDGE")
+                Log.e("STATUS", "JUDGE")
                 viewModel.getJudges()
 
                 viewModel.users.observe(viewLifecycleOwner) { response ->
@@ -138,7 +131,6 @@ class NumberFragment : Fragment() {
                                     if (i.phone == number) {
                                         sendVerificationcode(number)
                                         Log.e("проверка была", counter.toString())
-                                        Log.d("sf", counter.toString())
                                         navController.currentBackStackEntry?.arguments?.putSerializable(
                                             "user",
                                             i
@@ -199,13 +191,13 @@ class NumberFragment : Fragment() {
                     }
                 }
             } else if (args.status == "1") {
-                Log.e("STATUS","TRAINER")
+                Log.e("STATUS", "TRAINER")
 
                 viewModel.getUsers()
+//                viewModel.getTrainers()
 
                 viewModel.users.observe(viewLifecycleOwner) { response ->
                     when (response) {
-
                         is Resource.Success -> {
 
                             response.message?.let { Log.d("TAG_SUCCESS1", it) }
@@ -218,7 +210,7 @@ class NumberFragment : Fragment() {
                                     Log.e("size", user.size.toString())
                                     Log.e("user", i.phone)
                                     Log.e("counter", counter.toString())
-                                    if (i.phone == number && i.region==2) {
+                                    if (i.phone == number) {
                                         sendVerificationcode(number)
                                         Log.e("проверка была", counter.toString())
                                         Log.d("sf", counter.toString())

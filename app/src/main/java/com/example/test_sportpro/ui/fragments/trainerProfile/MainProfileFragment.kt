@@ -37,7 +37,11 @@ class MainProfileFragment : Fragment(R.layout.fragment_main_fragment) {
         fragmentMainFragmentBinding = FragmentMainFragmentBinding.bind(view)
 
         fragmentMainFragmentBinding!!.sportType.setOnClickListener {
-            findNavController().navigate(R.id.action_mainProfileFragment_to_profileFragment)
+//            findNavController().navigate(R.id.action_mainProfileFragment_to_profileFragment)
+            activity?.let{
+                val intent = Intent (it, MainActivity::class.java)
+                it.startActivity(intent)
+            }
 
         }
         val sessionManager = SessionManager(requireContext())

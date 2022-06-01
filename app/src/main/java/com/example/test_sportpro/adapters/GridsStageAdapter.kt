@@ -47,13 +47,13 @@ class GridsStageAdapter () :  RecyclerView.Adapter<GridsStageAdapter.StagesViewH
         holder.itemView.apply {
             var stage = grids.stage
 
-            if (stage == "1/1") {
-                stage = "Финал"
-                holder.binding.finalText.text = ""
+//            if (stage == "1/1") {
+//                stage = "Финал"
+//                holder.binding.finalText.text = ""
                 holder.binding.stage.text = stage
-            } else {
-                holder.binding.stage.text = stage
-            }
+//            } else {
+//                holder.binding.stage.text = stage
+//            }
 
             setOnClickListener {
                 onItemClickListener?.let {

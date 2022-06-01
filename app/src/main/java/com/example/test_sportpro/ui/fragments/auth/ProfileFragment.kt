@@ -37,12 +37,12 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
 
         navController = Navigation.findNavController(view)
 
-        view.imageButtonJudge.setOnClickListener {
+        view.imageButtonJudge.setOnClickListener { // Тренет
             val action1 = ProfileFragmentDirections.actionProfileFragmentToNumberFragment("1")
             Navigation.findNavController(view).navigate(action1)
 
         }
-        view.imageButtonTrainer.setOnClickListener {
+        view.imageButtonTrainer.setOnClickListener { // Судья
             val action2 = ProfileFragmentDirections.actionProfileFragmentToNumberFragment("2")
             Navigation.findNavController(view).navigate(action2)
 

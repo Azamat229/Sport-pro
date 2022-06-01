@@ -37,6 +37,12 @@ class JudgeFragment : Fragment(R.layout.fragment_judge) {
 
         viewModel.getAllSport()
 
+
+        fragmentJudgeBinding!!.sportType.setOnClickListener {
+            findNavController().navigate(R.id.action_judgeFragment_to_profileFragment)
+
+        }
+
         val sessionManager = SessionManager(requireContext())
         val number = sessionManager.fetchPhone().toString()
 

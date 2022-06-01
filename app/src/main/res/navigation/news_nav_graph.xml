@@ -127,6 +127,9 @@
             app:argType="string"
             app:nullable="true"
             android:defaultValue="@null" />
+        <action
+            android:id="@+id/action_codeFragment_to_mainProfileFragment"
+            app:destination="@id/mainProfileFragment" />
 
 
     </fragment>
@@ -279,6 +282,9 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_judgeFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
     </fragment>
 
 <!--    <fragment-->
@@ -392,7 +398,7 @@
     <fragment
         android:id="@+id/chosePlayersFragment"
         android:name="com.example.test_sportpro.ui.fragments.trainerProfile.ChosePlayersFragment"
-        android:label="fragment_chose_players"
+        android:label="Выбор спортсменов"
         tools:layout="@layout/fragment_chose_players" >
         <action
             android:id="@+id/action_chosePlayersFragment_to_playersConfirmationFragment"

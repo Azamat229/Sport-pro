@@ -89,9 +89,11 @@ class CodeFragment : Fragment(), View.OnClickListener {
 
             R.id.buttonCode -> {
                 if (args.statuss == "1") {
-                    val action =
-                            CodeFragmentDirections.actionCodeFragmentToRegisterFragment(numberForTextView)
-                    navController.navigate(action)
+//                    val action =
+//                            CodeFragmentDirections.actionCodeFragmentToRegisterFragment(numberForTextView)
+//                    navController.navigate(action)
+                    navController.navigate(R.id.action_codeFragment_to_mainProfileFragment)
+
                 } else
                     navController.navigate(R.id.action_codeFragment_to_judgeFragment)
             }
@@ -109,9 +111,10 @@ class CodeFragment : Fragment(), View.OnClickListener {
                         if (task.isSuccessful) {
 
                             if (args.statuss == "1") {
-                                val action =
-                                        CodeFragmentDirections.actionCodeFragmentToRegisterFragment(numberForTextView)
-                                navController.navigate(action)
+//                                val action = CodeFragmentDirections.actionCodeFragmentToRegisterFragment(numberForTextView)
+//                                navController.navigate(action)
+                                navController.navigate(R.id.action_codeFragment_to_mainProfileFragment)
+
                                 Log.d("TAG", "SignInwithPhoneAuth")
                             } else {
                                 navController.navigate(R.id.action_codeFragment_to_judgeFragment)

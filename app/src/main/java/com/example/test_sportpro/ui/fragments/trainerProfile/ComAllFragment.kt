@@ -34,7 +34,8 @@ class ComAllFragment : Fragment(R.layout.fragment_com_all) {
         val sessionManager = SessionManager(requireContext())
         val sportId = sessionManager.fetchTrainerSportId()
         
-        viewModel.getTrainerEvents(sportId)
+        viewModel.getTrainerEvents(3)
+//        viewModel.getTrainerEvents(sportId)
 
         competitionsAdapter.setOnItemClickListener {
             val bundle = Bundle().apply {
@@ -56,7 +57,9 @@ class ComAllFragment : Fragment(R.layout.fragment_com_all) {
                     }
                 }
                 is Resource.Error -> {
+                    response.data
                     response.message?.let { message ->
+                        Log.d(TAG, "An error occured: $message")
                         Log.d(TAG, "An error occured: $message")
                     }
                 }
